@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Депозиттерді сатып алу</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .deposit {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .deposit-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        .deposit-price {
+            color: #555;
+            margin: 10px 0;
+        }
+        .action-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        .action-button:disabled {
+            background-color: #ccc;
+        }
+        .card-info {
+            display: none;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .properties {
+            display: none;
+            margin-top: 10px;
+            text-align: left;
+            font-size: 14px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+        .confirm-button {
+            background-color: #FF6347;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .status-message {
+            font-size: 14px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Депозиттерді сатып алу</h1>
+
+    <div class="deposit">
+        <div class="deposit-title">1-апталық депозит</div>
+        <div class="deposit-price">Бағасы: 1400 тг</div>
+        <button class="action-button" onclick="showProperties(this)">Қасиеттері</button>
+        <button class="action-button" onclick="showCardInfo(this, '4400430019289062')">Сатып алу</button>
+        <div class="properties">
+            <p><strong>Пайыз:</strong> 700%</p>
+            <p><strong>Сақталу мерзімі:</strong> 1 апта</p>
+            <p><strong>Ескерту:</strong> 1-апталық депозит бағасы 1400тг ішіне 1000тг-5000тг аралығында ақша салуға болады. Бұл депозит 1 апта жұмыс істейді, бірақ ақша жоғалмайды, ол өзіңізге аударылып болғаннан кейін депозит аяқталады. Қайта іске қосу үшін депозит сатып алуыңыз керек.</p>
+        </div>
+        <div class="card-info">
+            <p>Депозит берушінің банк картасы: <strong>4400430019289062</strong></p>
+            <p>Депозит берушінің есімі: <strong>Зиябек.Е</strong></p>
+            <button class="confirm-button" onclick="confirmPayment(this)">Жібердім</button>
+            <p class="status-message"></p>
+        </div>
+    </div>
+
+
+    <div class="deposit">
+        <div class="deposit-title">3-апталық депозит</div>
+        <div class="deposit-price">Бағасы: 1400 тг</div>
+        <button class="action-button" onclick="showProperties(this)">Қасиеттері</button>
+        <button class="action-button" onclick="showCardInfo(this, '4400430019289062')">Сатып алу</button>
+        <div class="properties">
+            <p><strong>Пайыз:</strong> 700%</p>
+            <p><strong>Сақталу мерзімі:</strong> 3 апта</p>
+            <p><strong>Ескерту:</strong> 3-апталық депозит бағасы 1400тг ішіне 1000тг-5000тг аралығында ақша салуға болады. Бұл депозит 3 апта жұмыс істейді, бірақ ақша жоғалмайды, ол өзіңізге аударылып болғаннан кейін депозит аяқталады. Қайта іске қосу үшін депозит сатып алуыңыз керек.</p>
+        </div>
+        <div class="card-info">
+            <p>Депозит берушінің банк картасы: <strong>4400430019289062</strong></p>
+            <p>Депозит берушінің есімі: <strong>Зиябек.Е</strong></p>
+            <button class="confirm-button" onclick="confirmPayment(this)">Жібердім</button>
+            <p class="status-message"></p>
+        </div>
+    </div>
+
+
+    <div class="deposit">
+        <div class="deposit-title">6-апталық депозит</div>
+        <div class="deposit-price">Бағасы: 8400 тг</div>
+        <button class="action-button" onclick="showProperties(this)">Қасиеттері</button>
+        <button class="action-button" onclick="showCardInfo(this, '4400430019289062')">Сатып алу</button>
+        <div class="properties">
+            <p><strong>Пайыз:</strong> 700%</p>
+            <p><strong>Сақталу мерзімі:</strong> 6 апта</p>
+            <p><strong>Ескерту:</strong> 6-апталық депозит бағасы 1400тг ішіне 10000тг-25000тг аралығында ақша салуға болады. Бұл депозит 6 апта жұмыс істейді, бірақ ақша жоғалмайды, ол өзіңізге аударылып болғаннан кейін депозит аяқталады. Қайта іске қосу үшін депозит сатып алуыңыз керек.</p>
+        </div>
+        <div class="card-info">
+            <p>Депозит берушінің банк картасы: <strong>4400430019289062</strong></p>
+            <p>Депозит берушінің есімі: <strong>Зиябек.Е</strong></p>
+            <button class="confirm-button" onclick="confirmPayment(this)">Жібердім</button>
+            <p class="status-message"></p>
+        </div>
+    </div>
+
+
+    <div class="deposit">
+        <div class="deposit-title">12-апталық депозит</div>
+        <div class="deposit-price">Бағасы: 16800 тг</div>
+        <button class="action-button" onclick="showProperties(this)">Қасиеттері</button>
+        <button class="action-button" onclick="showCardInfo(this, '4400430019289062')">Сатып алу</button>
+        <div class="properties">
+            <p><strong>Пайыз:</strong> 700%</p>
+            <p><strong>Сақталу мерзімі:</strong> 12 апта</p>
+            <p><strong>Ескерту:</strong> 12-апталық депозит бағасы 1400тг ішіне 25000тг-50000тг аралығында ақша салуға болады. Бұл депозит 12 апта жұмыс істейді, бірақ ақша жоғалмайды, ол өзіңізге аударылып болғаннан кейін депозит аяқталады. Қайта іске қосу үшін депозит сатып алуыңыз керек.</p>
+        </div>
+        <div class="card-info">
+            <p>Депозит берушінің банк картасы: <strong>4400430019289062</strong></p>
+            <p>Депозит берушінің есімі: <strong>Зиябек.Е</strong></p>
+            <button class="confirm-button" onclick="confirmPayment(this)">Жібердім</button>
+            <p class="status-message"></p>
+        </div>
+    </div>
+
+
+    <script>
+        // Қасиеттерді көрсету
+        function showProperties(button) {
+            const properties = button.parentElement.querySelector('.properties');
+            properties.style.display = properties.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Картаның ақпаратын көрсету
+        function showCardInfo(button, cardNumber) {
+            button.disabled = true;
+            const cardInfo = button.parentElement.querySelector('.card-info');
+            cardInfo.style.display = 'block';
+        }
+
+        // Төлемді растау
+        function confirmPayment(button) {
+            const statusMessage = button.nextElementSibling;
+            statusMessage.textContent = 'Тексерілуде...';
+
+            // Серверге сұрау жіберу (имитация)
+            setTimeout(() => {
+                const success = Math.random() > 0.5; // 50% мүмкіндікпен растау
+                if (success) {
+                    statusMessage.textContent = 'Төлем сәтті расталды!';
+                    statusMessage.style.color = 'green';
+                } else {
+                    statusMessage.textContent = 'Төлем расталмады. Қайта көріңіз.';
+                    statusMessage.style.color = 'red';
+                }
+            }, 2000); // 2 секунд күту
+        }
+
+        const axios = require('axios');
+
+// Kaspi API үшін URL және кілттер
+const kaspiApiUrl = 'https://api.kaspi.kz/payment';
+const apiKey = 'your-api-key';
+
+// Төлем сұрауын жіберу
+function processPayment(amount, cardNumber) {
+    axios.post(kaspiApiUrl, {
+        amount: amount,
+        card_number: cardNumber,
+        api_key: apiKey
+    })
+    .then(response => {
+        if (response.data.success) {
+            console.log('Төлем сәтті жасалды');
+        } else {
+            console.log('Төлем сәтсіз');
+        }
+    })
+    .catch(error => {
+        console.log('Қате орын алды: ', error);
+    });
+}
+
+        function checkPaymentStatus(transactionId) {
+    axios.get(`${kaspiApiUrl}/status`, {
+        params: { transaction_id: transactionId, api_key: apiKey }
+    })
+    .then(response => {
+        if (response.data.status === 'success') {
+            console.log('Төлем расталды');
+        } else {
+            console.log('Төлем растаусыз');
+        }
+    })
+    .catch(error => {
+        console.log('Қате орын алды: ', error);
+    });
+}
+
+
+    </script>
+
+</body>
+</html>
